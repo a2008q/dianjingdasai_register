@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "RegServlet",urlPatterns = {"/RegServlet"})
@@ -27,7 +28,7 @@ public class RegServlet extends HttpServlet {
         TeamReg(req,resp);
     }
     //处理注册
-    private void TeamReg(HttpServletRequest req,HttpServletResponse resp){
+    private void TeamReg(HttpServletRequest req,HttpServletResponse resp) throws IOException {
         //获取请求信息
         String name = req.getParameter("name");
         String captain = req.getParameter("captain");
@@ -35,13 +36,19 @@ public class RegServlet extends HttpServlet {
         String member2= req.getParameter("member2");
         String member3 = req.getParameter("member3");
         String member4 = req.getParameter("member4");
-        System.out.println(name+captain);
+        String phone = req.getParameter("phone");
+//        System.out.println(name+":"+captain);
         //处理请求信息
         TeamService ts = new TeamServiceImpl();
 //        Teams t = ts.TeamReg(name,captain,member1,member2,member3,member4);
-        Teams t = new Teams(name,captain,member1,member2,member3,member4);
+        Teams t = new Teams(name,captain,member1,member2,member3,member4,phone);
         int index = ts.TeamRegService(t);
+        if(index>0){
+            HttpSession hs = req.getSession();
+            hs.setAttribute("reg",true);
+            resp.sendRedirect("/regSuccess.jsp");
+        }
     }
-    //处理注册
+
 
 }

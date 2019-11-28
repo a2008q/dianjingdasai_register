@@ -7,8 +7,28 @@ public class Teams {
     private String member2;
     private String member3;
     private String member4;
+    private String phone;
 
-    public Teams(String name, String captain, String member1, String member2, String member3, String member4) {
+
+    public Teams(String name, String captain, String member1, String member2, String member3, String member4, String phone) {
+        this.name = name;
+        this.captain = captain;
+        this.member1 = member1;
+        this.member2 = member2;
+        this.member3 = member3;
+        this.member4 = member4;
+        this.phone = phone;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Teams() {
     }
 
     public String getName() {

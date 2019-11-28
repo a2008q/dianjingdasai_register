@@ -5,30 +5,45 @@
   Time: 21:09
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*,entity.Teams" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册成功</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            width: 500px;
+            height: 600px;
+            margin: 0 auto;
+            border: 1px solid;
+            color: antiquewhite;
+            margin-top: 10%;
+        }
+        .header h2 ,p{
+            text-align: center;
+            color: black;
+        }
+        .center{
+            width: 450px;
+            height: 550px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-<h1>队伍信息</h1>
-<jsp:useBean id="regTeam" class="entity.Teams" scope="session"/>
-<table width="600" cellpadding="0" cellspacing="0" border="1">
-    <tr>
-        <td class="title">队名：</td>
-        <td class="content">&nbsp;<jsp:getProperty name="regTeam"  property="name"/></td>
-    </tr>
-    <tr>
-        <td class="title">队长：</td>
-        <td class="content">&nbsp;<jsp:getProperty name="regTeam"  property="captain"/></td>
-    </tr>
-    <tr>
-        <td class="title">队员</td>
-        <td class="content">&nbsp;<jsp:getProperty name="regTeam"  property="member1"/></td>
-        <td class="content">&nbsp;<jsp:getProperty name="regTeam"  property="member2"/></td>
-        <td class="content">&nbsp;<jsp:getProperty name="regTeam"  property="member3"/></td>
-        <td class="content">&nbsp;<jsp:getProperty name="regTeam"  property="member4"/></td>
-    </tr>
-</table>
+<div class="header">
+    <div class="center">
+        <h2>恭喜报名成功</h2>
+        <p>请扫以下二维码加入群聊</p>
+        <img src="./img/1.jpg" alt="" width="450px" height="500px" >
+    </div>
+</div>
 </body>
 </html>
